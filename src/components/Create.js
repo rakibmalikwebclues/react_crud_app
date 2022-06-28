@@ -11,6 +11,7 @@ function Create() {
 	// fetching a value in jsx
 	const [name, setname] = useState('');
 	const [age, setage] = useState('');
+	const [checked, setChecked] = useState(false);
 
 	// Using useNavigation for redirecting to pages
 	let history = useNavigate();
@@ -24,8 +25,8 @@ function Create() {
 
 		// Fetching a value from usestate and
 		// pushing to javascript object
-		let a = name, b=age
-		array.push({id:uni,Name:a,Age:b})
+		let a = name, b=age, c= Boolean(checked)
+		array.push({id:uni,Name:a,Age:b,Checked:c})
 
 
 	// Redirecting to home page after creation done
@@ -52,6 +53,11 @@ in a setname using usestate*/}
 	<Form.Control onChange={e => setage(e.target.value)}
 				type="text"
 				placeholder="Age" required/>
+</Form.Group>
+
+<Form.Group className="mb-3" controlId="formBasicCheckbox">
+    <Form.Check type="checkbox" label="Check me out" checked={checked}
+        onChange={(e) => setChecked(!checked)} />
 </Form.Group>
 
 	{/* handing a onclick event in button for
